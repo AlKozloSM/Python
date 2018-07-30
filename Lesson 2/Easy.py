@@ -45,6 +45,9 @@ def generate_random_list(length_list, min , max):
         Returns:
             list: список со случайными числами.
     """
+    if max < min:
+        print("Верхняя граница меньше нижней границы")
+        return None
     i = 0
     list = []
     while i < length_list:
@@ -72,9 +75,12 @@ min = int(input('Введите нижнюю грацницу диапозона
 max = int(input('Введите верхнюю грацницу диапозона = '))
 
 list = generate_random_list(length_list, min, max)
-print('Начальный список : ', list)
-multiplicity_list = check_multiplicity_list_elements(list)
-print('Проверенный список : ', multiplicity_list)
+if list:
+    print('Начальный список : ', list)
+    multiplicity_list = check_multiplicity_list_elements(list)
+    print('Проверенный список : ', multiplicity_list)
+else:
+    print("Вы ввели неверные данные")
 
 
 
